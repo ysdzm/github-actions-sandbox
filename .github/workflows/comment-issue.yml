@@ -1,0 +1,16 @@
+name: Add Comment to Issue
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add comment
+      run: |
+        gh issue comment ${{ github.event.issue.number }} --body "Thank you for opening this issue! We will look into it as soon as possible."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
