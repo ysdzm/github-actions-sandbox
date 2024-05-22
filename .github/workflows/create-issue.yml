@@ -16,5 +16,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-        -d '{"title":"Automatic Issue","body":"This issue was created automatically by a GitHub Actions workflow.","assignees":["your-username"]}' \
+        -d '{"title":"Automatic Issue","body":"This issue was created automatically by a GitHub Actions workflow.","assignees":["ysdzm"]}' \
         https://api.github.com/repos/${{ github.repository }}/issues
