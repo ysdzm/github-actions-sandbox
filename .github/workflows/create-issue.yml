@@ -1,7 +1,6 @@
 name: Weekly Team Sync
 on:
-  schedule:
-    - on: workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   create_issue:
