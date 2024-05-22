@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Add comment
       run: |
         gh issue comment ${{ github.event.issue.number }} --body "Thank you for opening this issue! We will look into it as soon as possible."
