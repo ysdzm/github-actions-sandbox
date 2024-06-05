@@ -1,16 +1,22 @@
-name: marp and discord
+name: Marp and Discord
 
 on:
   workflow_dispatch:
 
 jobs:
-  say-hello:
+  generate-pdf:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Generate PDF
-      run: |
-        docker run --rm --init -v $PWD:/home/marp/app/ -e LANG=$LANG -e MARP_USER="$(id -u):$(id -g)" marpteam/marp-cli test.md --pdf --theme seminar.css
+      - name: Generate PDF
+        run: |
+          docker run --rm --init -v $PWD:/home/marp/app/ -e LANG=$LANG -e MARP_USER="$(id -u):$(id -g)" marpteam/marp-cli test.md --pdf --theme seminar.css
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-pdf
+          path: test.pdf
