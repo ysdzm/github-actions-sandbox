@@ -1,5 +1,5 @@
 ---
-theme: uncover
+theme: seminar
 marp: true
 paginate: true
 footer: See also https://twitter.com/e99h2121
